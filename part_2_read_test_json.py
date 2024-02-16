@@ -19,17 +19,6 @@ def make_game_library_from_json( json_data ):
                 self.year = year
                 self.platforms = []
 
-            def __str__(self):
-                return_str = "Game:\n"
-                return_str += "  Title:\n"
-                return_str += "    " + self.title + "\n"
-                return_str += "  Year:\n"
-                return_str += "    " + self.year + "\n"
-                return_str += "  Platforms:\n"
-                for platform in self.platforms:
-                    return_str += "    " + platform.name + ", " + str(platform.launchYear) + "\n"
-                return return_str
-
             def add_platform(self, platform=None):
                 self.platforms.append(platform)
     ### End Add Code Here ###
@@ -49,16 +38,16 @@ with open(input_json_file, "r") as reader:
     title = games_json_data["name"]
     year = games_json_data["year"]
     # Create a new Family object that is initialized with the parents
-    new_game = game_classes.Game(title, year)
+    new_game = test_data.Game(title, year)
 
     # Get the kids array from the JSON data (it is an array of dicts)
     platform = games_json_data["platform"]
     # Iterate through the kids array
-    for platform in platforms:
+    for platform in platform:
         # Creat a new Kid with the "name" and "age" from the JSON data
-        new_platform = game_classes.platform(platform["name"], platform["launch year"])
+        new_platform = test_data.platform(platform["name"], platform["launch year"])
         # Add the Kid to the Family
-        new_games.add_platform(new_platform)
+        new_game.add_platform(new_platform)
 
-    print(new_games)
+    print(new_game)
 ### End Add Code Here ###
