@@ -21,14 +21,17 @@ for level in levels:
     upper_layer = level["top_layer"]
 
     new_level = cc_classes.CCLevel()
-    new_level.title = title
-    new_level.password = password
-    new_level.hint = hint
     new_level.level_number = level_number
     new_level.time = time
     new_level.num_chips = chip_count
     new_level.upper_layer = upper_layer
+    new_level.title = title
+    new_level.password = password
+    new_level.hint = hint
+    new_level.monsters = monster
+    print(new_level)
 
     level_pack.add_level(new_level)
 #Save converted data to DAT file
+#print(level_pack)
 cc_dat_utils.write_cc_level_pack_to_dat(level_pack, "data/bennerr_cc1.dat")
