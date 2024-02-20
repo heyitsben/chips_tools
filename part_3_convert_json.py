@@ -19,4 +19,4 @@ for level in levels:
     new_level.password = password
     new_level.hint = hint
 #Save converted data to DAT file
-bennerr_cc1 = cc_dat_utils.write_cc_level_pack_to_dat(new_level, bennerr_cc1)
+cc_dat_utils.write_cc_level_pack_to_dat(new_level, bennerr_cc1)
