@@ -11,6 +11,7 @@ with open(input_json_file, "r") as reader:
 levels = json_input["levels"]
 for level in levels:
     title = cc_classes.CCMapTitleField(level["title"])
+    print(level["title"])
     password = cc_classes.CCEncodedPasswordField(level["password"])
     hint = cc_classes.CCMapHintField(level["hint"])
     monster = cc_classes.CCMonsterMovementField(level["monster"])
