@@ -29,7 +29,6 @@ for level in levels:
     new_level.password = password
     new_level.hint = hint
     new_level.monsters = monster
-    print(new_level)
 
     level_pack.add_level(new_level)
 #Save converted data to DAT file
