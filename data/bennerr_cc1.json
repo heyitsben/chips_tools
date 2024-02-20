@@ -37,6 +37,6 @@
             "password": [223,201,214,200],
             "hint": "Look for chips to unlock the exit!",
             "monster": [7,12],
-            "field_types":[[3,"level 1"], [6,[223,201,214,200]],[7,"Look for chips to unlock the exit!"],[10,[,7,12]]]
+            "field_types":[[3,"level 1"], [6,[223,201,214,200]],[7,"Look for chips to unlock the exit!"],[10,[7,12]]]
           }]
 }
