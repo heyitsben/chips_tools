@@ -11,8 +11,12 @@ with open(input_json_file, "r") as reader:
 levels = json_input["levels"]
 for level in levels:
     title = cc_classes.CCMapTitleField(level["title"])
-    print(level["title"])
     password = cc_classes.CCEncodedPasswordField(level["password"])
     hint = cc_classes.CCMapHintField(level["hint"])
     monster = cc_classes.CCMonsterMovementField(level["monster"])
+    new_level = cc_classes.CCLevel()
+    new_level.title = title
+    new_level.password = password
+    new_level.hint = hint
 #Save converted data to DAT file
+bennerr_cc1 = cc_dat_utils.write_cc_level_pack_to_dat(new_level, bennerr_cc1)
