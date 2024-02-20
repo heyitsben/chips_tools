@@ -18,6 +18,7 @@ for level in levels:
     level_number = level["level_number"]
     time = level["time"]
     chip_count = level["chip_count"]
+    upper_layer = level["top_layer"]
 
     new_level = cc_classes.CCLevel()
     new_level.title = title
@@ -25,8 +26,9 @@ for level in levels:
     new_level.hint = hint
     new_level.level_number = level_number
     new_level.time = time
-    new_level.chip_count = chip_count
+    new_level.num_chips = chip_count
+    new_level.upper_layer = upper_layer
 
     level_pack.add_level(new_level)
 #Save converted data to DAT file
-cc_dat_utils.write_cc_level_pack_to_dat(new_level, "data/bennerr_cc1.dat")
+cc_dat_utils.write_cc_level_pack_to_dat(level_pack, "data/bennerr_cc1.dat")
