@@ -46,5 +46,5 @@ for level in levels:
 
     level_pack.add_level(new_level)
 #Save converted data to DAT file
-#print(level_pack)
+print(level_pack)
 cc_dat_utils.write_cc_level_pack_to_dat(level_pack, "data/bennerr_cc1.dat")
