@@ -4,35 +4,33 @@ import cc_classes
 
 #Part 3
 #Load your custom JSON file
-input_json_file = "data/bennerr_cc1.json"
+input_json_file = "data/bennerr_testData.json"
 with open(input_json_file, "r") as reader:
     json_input = json.load(reader)
 #Convert JSON data to CCLevelPack
 levels = json_input["levels"]
 level_pack = cc_classes.CCLevelPack()
-for level in levels:
+for i, level in enumerate(levels):
     title = cc_classes.CCMapTitleField(level["title"])
     password = cc_classes.CCEncodedPasswordField(level["password"])
-    hint = cc_classes.CCMapHintField(level["hint"])
+    hint = cc_classes.CCMapHintField(level["hintText"])
 
-    monsterTemp = level["monster"]
+    monsterTemp = level["monsters"]
     monster_coords = []
     for m in monsterTemp:
-        mc = cc_classes.CCCoordinate(monsterTemp[0],monsterTemp[1])
+        mc = cc_classes.CCCoordinate(m[0],m[1])
         monster_coords.append(mc)
     monster = cc_classes.CCMonsterMovementField(monster_coords)
 
-    level_number = level["level_number"]
     time = level["time"]
-    chip_count = level["chip_count"]
-    upper_layer = level["top_layer"]
+    upper_layer = level["upperLayer"]
 
     new_level = cc_classes.CCLevel()
 
-    new_level.level_number = level_number
+    new_level.level_number = i+1
     new_level.time = time
-    new_level.num_chips = chip_count
     new_level.upper_layer = upper_layer
+    new_level.num_chips = upper_layer.count(2)
 
     new_level.add_field(title)
     new_level.add_field(password)
